@@ -1,0 +1,26 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Гитара Fender Stratocaster",
+      "price": 1200,
+      "image": "/images/strat.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Yamaha Drum Set",
+      "price": 1500,
+      "image": "/images/yamaha.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Alice"
+    },
+    {
+      "id": 2,
+      "name": "Bob"
+    }
+  ]
+}
