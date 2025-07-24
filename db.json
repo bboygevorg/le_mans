@@ -1,26 +1,54 @@
 {
-  "products": [
+  "carsData": [
     {
-      "id": 1,
-      "name": "Гитара Fender Stratocaster",
-      "price": 1200,
-      "image": "/images/strat.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Yamaha Drum Set",
-      "price": 1500,
-      "image": "/images/yamaha.jpg"
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "name": "Alice"
-    },
-    {
-      "id": 2,
-      "name": "Bob"
+      "id": "1923-chenard",
+      "name": "Chenard & Walcker Sport",
+      "year": 1923,
+      "team": "Chenard & Walcker",
+      "picture_home": "https://imgur.com/OnCEKzS.png",
+      "picture": "https://imgur.com/a76enTN",
+      "3d": "",
+      "specs:": {
+        "Engine": "4-cylinder, inline",
+        "Displacement": "1,983 cc (2.0 liters)",
+        "PowerOutput": "approx. 90 hp",
+        "TopSpeed": "~120 km/h",
+        "Drivetrain": "rear-wheel drive",
+        "Transmission": "4-speed manual",
+        "Brakes": "mechanical, on all four wheels",
+        "Weight": "approx. 1,000 kg"
+      },
+      "fontFamily": "'Cormorant Garamond', serif",
+      "backgroundImage": "https://imgur.com/6uQqelH",
+      "textColor": "#33322",
+      "position": "left",
+      "history": [
+        {
+          "id": 1,
+          "imageHistory": "https://imgur.com/L5veCBF",
+          "textHistory": "Chenard & Walcker Sport achieved a historic victory in the very first '24 Hours of Le Mans' race. The crew, consisting of André Lagache and René Léonard, covered over 2,200 km in 24 hours — a remarkable success for a debut."
+        },
+        {
+          "id": 2,
+          "imageHistory": "https://imgur.com/cK2RbEH",
+          "textHistory": "The Chenard & Walcker Sport featured a 2-liter 4-cylinder engine with overhead valves, giving it superior reliability and speed over its competitors."
+        },
+        {
+          "id": 3,
+          "imageHistory": "https://imgur.com/8ZE04Rb",
+          "textHistory": "In addition to the winning car, the second-place finish also went to a Chenard & Walcker vehicle — highlighting the brand’s dominance in the 1923 race."
+        },
+        {
+          "id": 4,
+          "imageHistory": "https://imgur.com/8ZE04Rb",
+          "textHistory": "The victory of Chenard & Walcker became a source of national pride for France and demonstrated that the country could compete with British and German manufacturers on the track."
+        },
+        {
+          "id": 5,
+          "imageHistory": "https://imgur.com/QxWrwPW",
+          "textHistory": "Despite their success, Chenard & Walcker did not become a regular contender at Le Mans. However, their 1923 win remains a landmark moment in motorsport history."
+        }
+      ]
     }
   ]
 }

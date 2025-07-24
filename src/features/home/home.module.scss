@@ -1,0 +1,36 @@
+@use "../../app/styles/fonts" as fonts;
+@use "../../app/styles/mixin" as mixin;
+
+.mainWrapper {
+  @include mixin.container();
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.logoMap {
+  width: 150px;
+  margin-top: 0.5rem;
+  img {
+    width: 100%;
+  }
+}
+
+.info {
+  margin-right: 1rem;
+
+  .topName {
+    color: #5a5a5a;
+    @include fonts.title-thin($letter-spacing: 2.5px, $font-size: 2.5rem);
+  }
+
+  .bottomName {
+    color: #3d3c3c;
+    @include fonts.title-bold($letter-spacing: 2px, $font-size: 3.3rem);
+  }
+}
