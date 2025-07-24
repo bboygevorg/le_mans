@@ -1,31 +1,27 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { fetchAllCars } from "@features/cars/carsSlice";
-import { RootState, AppDispatch } from "@app/store";
+import { useAppDispatch, useAppSelector } from "@app/hooks";
+import * as classes from "../home.module.scss";
 
 const BottomBar: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { cars, loading, error } = useSelector(
-    (state: RootState) => state.cars
-  );
+  const dispatch = useAppDispatch();
+  const { cars, loading, error } = useAppSelector((state) => state.cars);
 
   useEffect(() => {
     dispatch(fetchAllCars());
   }, [dispatch]);
 
   return (
-    <div>
-      <h2>Победители Le Mans</h2>
-      <ul>
-        {cars.map((car) => (
-          <>
-            <img src={car.picture_home} alt="" />
-            <li key={car.id}>
-              <strong>{car.name}</strong> ({car.year}) — {car.team}
-            </li>
-          </>
-        ))}
-      </ul>
+    <div className={classes.carGrid}>
+      {Array.isArray(cars) &&
+        cars[0] &&
+        Array(20)
+          .fill(cars[0])
+          .map((car, index) => (
+            <div key={index}>
+              <img src={car.picture_home} alt={car.name} />
+            </div>
+          ))}
     </div>
   );
 };

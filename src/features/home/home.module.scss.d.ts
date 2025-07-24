@@ -1,4 +1,5 @@
 export declare const bottomName: string;
+export declare const carGrid: string;
 export declare const container: string;
 export declare const info: string;
 export declare const logoMap: string;

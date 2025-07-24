@@ -34,3 +34,28 @@
     @include fonts.title-bold($letter-spacing: 2px, $font-size: 3.3rem);
   }
 }
+
+.carGrid {
+  background-color: green;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  div {
+    width: 10rem;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+    }
+  }
+}
