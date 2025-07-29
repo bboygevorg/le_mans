@@ -27,18 +27,33 @@
   .topName {
     color: #5a5a5a;
     @include fonts.title-thin($letter-spacing: 2.5px, $font-size: 2.5rem);
+
+    @media (max-width: 1024px) {
+      @include fonts.title-thin($letter-spacing: 2.5px, $font-size: 2rem);
+    }
+
+    @media (max-width: 600px) {
+      @include fonts.title-thin($letter-spacing: 2.5px, $font-size: 1rem);
+    }
   }
 
   .bottomName {
     color: #3d3c3c;
     @include fonts.title-bold($letter-spacing: 2px, $font-size: 3.3rem);
+
+    @media (max-width: 1024px) {
+      @include fonts.title-thin($letter-spacing: 2.5px, $font-size: 2rem);
+    }
+
+    @media (max-width: 600px) {
+      @include fonts.title-thin($letter-spacing: 2.5px, $font-size: 1rem);
+    }
   }
 }
 
 .carGrid {
   width: 80%;
   margin: 0 auto;
-  // background-color: green;
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(4, 1fr);
@@ -51,7 +66,6 @@
   }
 
   @media (max-width: 600px) {
-    background-color: green;
     grid-template-columns: repeat(2, 1fr);
   }
 

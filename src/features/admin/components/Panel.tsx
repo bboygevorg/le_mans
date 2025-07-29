@@ -30,7 +30,7 @@ const Panel = () => {
   const handleChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target;
 
-    if (name.startsWith("sprcs.")) {
+    if (name.startsWith("specs.")) {
       const specKey = name.split(".")[1];
       setCar((prev) => ({
         ...prev,
@@ -97,12 +97,7 @@ const Panel = () => {
         value={car.picture}
         onChange={handleChange}
       />
-      <input
-        name="visual"
-        placeholder="visual"
-        value={car.visual}
-        onChange={handleChange}
-      />
+
       <input
         name="visual"
         placeholder="visual"
@@ -150,10 +145,9 @@ const Panel = () => {
           onChange={handleChange}
         />
       ))}
-
       <h3>История (history)</h3>
       {car.history.map((item, index) => (
-        <div key={index}>
+        <div key={item.id}>
           <input
             placeholder="imageHistory"
             value={item.imageHistory}
@@ -161,7 +155,6 @@ const Panel = () => {
               handleHistoryChange(index, "imageHistory", e.target.value)
             }
           />
-
           <textarea
             placeholder="textHistory"
             value={item.textHistory}
@@ -172,13 +165,8 @@ const Panel = () => {
         </div>
       ))}
       <button type="button" onClick={addHistoryItem}>
-        {" "}
         Добавить блок истории
       </button>
-
-      <br />
-
-      <button type="submit">Отправить</button>
     </form>
   );
 };
