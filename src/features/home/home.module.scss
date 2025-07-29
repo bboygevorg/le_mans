@@ -36,25 +36,43 @@
 }
 
 .carGrid {
-  background-color: green;
+  width: 80%;
+  margin: 0 auto;
+  // background-color: green;
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
+  margin-top: 2rem;
+  justify-items: center;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: 600px) {
+    background-color: green;
     grid-template-columns: repeat(2, 1fr);
   }
 
   div {
-    width: 10rem;
+    width: 15rem;
     cursor: pointer;
 
+    @media (max-width: 1270px) {
+      width: 100%;
+      max-width: 240px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 600px) {
+      width: 100%;
+      max-width: 240px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     img {
+      height: auto;
       width: 100%;
     }
   }

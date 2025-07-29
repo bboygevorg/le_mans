@@ -22,6 +22,7 @@ export interface Car {
   team: string;
   picture_home: string;
   picture: string;
+  sound: string;
   "3d": string | null;
   specs: CarSpecs[];
   fontFamily: string;

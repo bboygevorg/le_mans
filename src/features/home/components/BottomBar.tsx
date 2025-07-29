@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { fetchAllCars } from "@features/cars/carsSlice";
 import { useAppDispatch, useAppSelector } from "@app/hooks";
 import * as classes from "../home.module.scss";
+import CarsBlock from "@features/cars/components/Cars";
 
 const BottomBar: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -13,15 +14,7 @@ const BottomBar: React.FC = () => {
 
   return (
     <div className={classes.carGrid}>
-      {Array.isArray(cars) &&
-        cars[0] &&
-        Array(20)
-          .fill(cars[0])
-          .map((car, index) => (
-            <div key={index}>
-              <img src={car.picture_home} alt={car.name} />
-            </div>
-          ))}
+      <CarsBlock cars={cars} alt={"sound"} />
     </div>
   );
 };
