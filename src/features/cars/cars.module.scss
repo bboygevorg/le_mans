@@ -1,0 +1,12 @@
+@use "../../app/styles/fonts" as fonts;
+@use "../../app/styles/mixin" as mixin;
+
+.fullscreenBackground {
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}

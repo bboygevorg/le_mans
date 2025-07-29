@@ -1,6 +1,7 @@
 import React from "react";
 import { Car } from "../../cars/types";
 import { useHoverSound } from "@shared/hooks/useHoverSound";
+import { Link } from "react-router-dom";
 
 type CarsBlockProps = {
   cars: Car[];
@@ -17,7 +18,9 @@ const HoverSoundImage: React.FC<HoverSoundImageProps> = ({ car }) => {
   );
   return (
     <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <img src={car.picture_home} alt={car.name} />
+      <Link to={`car/${car.id}`}>
+        <img src={car.picture_home} alt={car.name} />
+      </Link>
       <audio ref={audioRef} src={car.sound} preload="auto" />
     </div>
   );
@@ -26,14 +29,17 @@ const HoverSoundImage: React.FC<HoverSoundImageProps> = ({ car }) => {
 const CarsBlock: React.FC<CarsBlockProps> = ({ cars }) => {
   return (
     <>
-      {Array.isArray(cars) &&
+      {/* {Array.isArray(cars) &&
         cars[0] &&
         Array(20)
           .fill(cars[0])
           .map((car, index) => (
             <HoverSoundImage key={car.id || index} car={car} />
-          ))}
-      ;
+          ))} */}
+
+      {cars.map((car, index) => (
+        <HoverSoundImage key={car.id || index} car={car} />
+      ))}
     </>
   );
 };
