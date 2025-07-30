@@ -20,7 +20,6 @@ const CarPage: React.FC = () => {
   const selectedCar = cars.find((car) => car.id === id);
   if (!selectedCar) return <p>Машина с ID {id} не найдена</p>;
 
-  console.log(cars);
   return (
     <div
       className={classes.fullscreenBackground}
@@ -33,10 +32,24 @@ const CarPage: React.FC = () => {
         height: "100vh",
       }}
     >
-      <h1>Информация о машине</h1>
-      <p>ID машины: {id}</p>
-      <p>{selectedCar.year}</p>
-      <OnceCars />
+      <div>
+        <h1>{selectedCar.name}</h1>
+        <h2>{selectedCar.year}</h2>
+        <h2>{selectedCar.team}</h2>
+        <h2>Winner Le-Mans 24H</h2>
+        <div>
+          <img src={selectedCar.picture} alt="" />
+        </div>
+        <hr />
+        <div>
+          {Object.entries(selectedCar.specs).map(([key, value]) => (
+            <p key={key}>
+              <strong>{key}:</strong> {value}
+            </p>
+          ))}
+        </div>
+        <OnceCars />
+      </div>
     </div>
   );
 };
