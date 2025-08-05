@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import * as classes from "../admin.module.scss";
 
-const Panel = () => {
+const Panel: React.FC = () => {
   const [car, setCar] = useState({
     id: "",
     name: "",
@@ -40,8 +41,12 @@ const Panel = () => {
       setCar((prev) => ({ ...prev, [name]: value }));
     }
   };
-
-  const handleHistoryChange = (index: number, field: string, value: any) => {
+  ("");
+  const handleHistoryChange = (
+    index: number,
+    field: "imageHistory" | "textHistory",
+    value: string
+  ) => {
     const updated = [...car.history];
     updated[index][field] = value;
     setCar((prev) => ({ ...prev, history: updated }));
@@ -57,9 +62,28 @@ const Panel = () => {
     }));
   };
 
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const response = await fetch("http://localhost:5000/carsData", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(car),
+    });
+
+    if (response.ok) {
+      alert("Данные отправлены успешно!");
+      setCar({ ...car, id: "", name: "", year: "", team: "" });
+    } else {
+      alert("Ошибка при отправке данных");
+    }
+  };
+
   return (
-    <form>
-      <h2>Добавить машину</h2>
+    <form className={classes.carFormWrapper} onSubmit={handleSubmit}>
+      <h2>Add a car</h2>
 
       <input
         name="id"
@@ -135,7 +159,7 @@ const Panel = () => {
         onChange={handleChange}
       />
 
-      <h3>Характеристики (specs)</h3>
+      <h3>Characteristics</h3>
       {Object.entries(car.specs).map(([key, value]) => (
         <input
           key={key}
@@ -145,27 +169,33 @@ const Panel = () => {
           onChange={handleChange}
         />
       ))}
-      <h3>История (history)</h3>
-      {car.history.map((item, index) => (
-        <div key={item.id}>
-          <input
-            placeholder="imageHistory"
-            value={item.imageHistory}
-            onChange={(e) =>
-              handleHistoryChange(index, "imageHistory", e.target.value)
-            }
-          />
-          <textarea
-            placeholder="textHistory"
-            value={item.textHistory}
-            onChange={(e) =>
-              handleHistoryChange(index, "textHistory", e.target.value)
-            }
-          />
-        </div>
-      ))}
-      <button type="button" onClick={addHistoryItem}>
-        Добавить блок истории
+      <div className={classes.section}>
+        <h3>History</h3>
+        {car.history.map((item, index) => (
+          <div key={item.id} className={classes.historyBlock}>
+            <input
+              placeholder="imageHistory"
+              value={item.imageHistory}
+              onChange={(e) =>
+                handleHistoryChange(index, "imageHistory", e.target.value)
+              }
+            />
+            <textarea
+              placeholder="textHistory"
+              value={item.textHistory}
+              onChange={(e) =>
+                handleHistoryChange(index, "textHistory", e.target.value)
+              }
+            />
+          </div>
+        ))}
+        <button type="button" onClick={addHistoryItem} className={classes.add}>
+          add new block
+        </button>
+      </div>
+
+      <button type="submit" className={classes.submit}>
+        Send
       </button>
     </form>
   );

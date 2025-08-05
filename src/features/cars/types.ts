@@ -24,7 +24,7 @@ export interface Car {
   picture: string;
   sound: string;
   visual: string | null;
-  specs: CarSpecs[];
+  specs: CarSpecs;
   fontFamily: string;
   backgroundImage: string;
   textColor: string;
