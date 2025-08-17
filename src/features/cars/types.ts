@@ -24,10 +24,12 @@ export interface Car {
   picture: string;
   sound: string;
   visual: string | null;
+  no_visual: "string";
   specs: CarSpecs;
   fontFamily: string;
   backgroundImage: string;
   textColor: string;
   position: "left" | "right" | "center";
+  position_picture: "left" | "right" | "center";
   history: CarHistory[];
 }

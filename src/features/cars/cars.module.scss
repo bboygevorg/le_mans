@@ -12,5 +12,19 @@
 
   .wrapper {
     @include mixin.container();
+
+    .infoCar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .infoCar > div:first-child {
+      flex: 1;
+    }
+
+    .infoCar > div:last-child {
+      flex: 2;
+    }
   }
 }

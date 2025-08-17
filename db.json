@@ -6,9 +6,10 @@
       "year": 1923,
       "team": "Chenard & Walcker",
       "picture_home": "https://imgur.com/OnCEKzS.png",
-      "picture": "https://i.imgur.com/bPstIrf.png",
+      "picture": "https://i.imgur.com/fFXqLPS.png",
       "sound": "https://res.cloudinary.com/djp2d7bic/video/upload/v1753476096/chenard-walcker_m4o5ez.wav",
-      "visual": "",
+      "visual": "jlkj",
+      "no_visual": "https://i.imgur.com/uVJ4zM4.png",
       "specs": {
         "Engine": "4-cylinder, inline",
         "Displacement": "1,983 cc (2.0 liters)",
@@ -23,6 +24,7 @@
       "backgroundImage": "https://i.imgur.com/geNi9Ly.png",
       "textColor": "#33322",
       "position": "left",
+      "position_picture": "right",
       "history": [
         {
           "id": 1,

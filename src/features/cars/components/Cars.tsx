@@ -29,14 +29,6 @@ const HoverSoundImage: React.FC<HoverSoundImageProps> = ({ car }) => {
 const CarsBlock: React.FC<CarsBlockProps> = ({ cars }) => {
   return (
     <>
-      {/* {Array.isArray(cars) &&
-        cars[0] &&
-        Array(20)
-          .fill(cars[0])
-          .map((car, index) => (
-            <HoverSoundImage key={car.id || index} car={car} />
-          ))} */}
-
       {cars.map((car, index) => (
         <HoverSoundImage key={car.id || index} car={car} />
       ))}
