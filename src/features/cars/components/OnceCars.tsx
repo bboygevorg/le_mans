@@ -127,8 +127,12 @@ const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
           <h1>History</h1>
           <div>
             {selectedCar.history.map((elem, index) => (
-              <div key={elem.id} onClick={() => setLightboxIndex(index)}>
-                <img src={elem.imageHistory} alt="" />
+              <div key={elem.id}>
+                <img
+                  src={elem.imageHistory}
+                  alt=""
+                  onClick={() => setLightboxIndex(index)}
+                />
                 <p>{elem.textHistory}</p>
               </div>
             ))}
