@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as classes from "@features/cars/cars.module.scss";
 import { Car } from "../types";
 
@@ -8,8 +8,48 @@ type OnceCarsProps = {
 };
 
 const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [closing, setClosing] = useState(false);
   const selectedCar = car.find((item) => item.id === id);
+
   if (!selectedCar) return <p>Машина с ID {id} не найдена</p>;
+
+  const historyImages = selectedCar.history.map((h) => h.imageHistory);
+
+  const closeLightbox = () => {
+    setClosing(true);
+    setTimeout(() => {
+      setLightboxIndex(null);
+      setClosing(false);
+    }, 400);
+  };
+
+  const showPrev = () => {
+    if (lightboxIndex !== null) {
+      setLightboxIndex(
+        (lightboxIndex - 1 + historyImages.length) % historyImages.length
+      );
+    }
+  };
+
+  const showNext = () => {
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex + 1) % historyImages.length);
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxIndex !== null) {
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") showNext();
+        if (e.key === "ArrowLeft") showPrev();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxIndex]);
 
   return (
     <div
@@ -25,23 +65,13 @@ const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
     >
       <div className={classes.wrapper}>
         <div
-          // className={classes.infoBlock}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems:
-              selectedCar.position === "left"
-                ? "flex-start"
-                : selectedCar.position === "right"
-                ? "flex-end"
-                : "center",
-            textAlign:
-              selectedCar.position === "left"
-                ? "left"
-                : selectedCar.position === "right"
-                ? "right"
-                : "center",
-          }}
+          className={`${classes.infoBlock} ${
+            selectedCar.position === "left"
+              ? classes.left
+              : selectedCar.position === "right"
+              ? classes.right
+              : classes.center
+          }`}
         >
           <h1>{selectedCar.name}</h1>
           <h2>{selectedCar.year}</h2>
@@ -49,6 +79,13 @@ const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
           <h2 style={{ color: "#dd3940" }}>Winner Le-Mans 24H</h2>
         </div>
         <div
+          className={`${classes.pictureBlock} ${
+            selectedCar.position_picture === "left"
+              ? classes.left
+              : selectedCar.position_picture === "right"
+              ? classes.right
+              : classes.center
+          }`}
           style={{
             display: "flex",
             flexDirection: "column",
@@ -81,19 +118,59 @@ const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
             ) : (
               <>
                 {" "}
-                <div>
-                  <iframe
-                    height="0"
-                    width="0"
-                    src="https://www.googletagmanager.com/static/service_worker/5840/sw_iframe.html?origin=https%3A%2F%2F3dmodels.org"
-                    cla="display: none; visibility: hidden;"
-                  ></iframe>
-                </div>
+                <div>haya</div>
               </>
             )}
           </div>
         </div>
+        <div className={classes.history}>
+          <h1>History</h1>
+          <div>
+            {selectedCar.history.map((elem, index) => (
+              <div key={elem.id} onClick={() => setLightboxIndex(index)}>
+                <img src={elem.imageHistory} alt="" />
+                <p>{elem.textHistory}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={classes.bottomPicture}>
+          <img src={selectedCar.picture_footer} alt="" />
+        </div>
       </div>
+
+      {lightboxIndex !== null && (
+        <div
+          className={`${classes.lightbox}  ${
+            closing ? classes.fadeOut : classes.fadeIn
+          }`}
+          onClick={closeLightbox}
+        >
+          <button
+            className={`${classes.navButton} ${classes.prev}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              showPrev();
+            }}
+          >
+            ←
+          </button>
+          <img
+            src={historyImages[lightboxIndex]}
+            alt="History enlarged"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            className={`${classes.navButton} ${classes.next}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              showNext();
+            }}
+          >
+            →
+          </button>
+        </div>
+      )}
     </div>
   );
 };

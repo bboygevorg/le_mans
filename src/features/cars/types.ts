@@ -32,4 +32,5 @@ export interface Car {
   position: "left" | "right" | "center";
   position_picture: "left" | "right" | "center";
   history: CarHistory[];
+  picture_footer: string;
 }

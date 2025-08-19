@@ -1,3 +1,16 @@
+export declare const bottomPicture: string;
+export declare const center: string;
+export declare const fadeIn: string;
+export declare const fadeOut: string;
 export declare const fullscreenBackground: string;
+export declare const history: string;
+export declare const infoBlock: string;
 export declare const infoCar: string;
+export declare const left: string;
+export declare const lightbox: string;
+export declare const navButton: string;
+export declare const next: string;
+export declare const pictureBlock: string;
+export declare const prev: string;
+export declare const right: string;
 export declare const wrapper: string;
