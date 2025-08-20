@@ -55,7 +55,7 @@ const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
     <div
       className={classes.fullscreenBackground}
       style={{
-        background: "#f3e8d4",
+        background: selectedCar.bg,
         backgroundSize: "auto",
         backgroundPosition: "top left",
         backgroundRepeat: "repeat",
@@ -73,9 +73,15 @@ const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
               : classes.center
           }`}
         >
-          <h1>{selectedCar.name}</h1>
-          <h2>{selectedCar.year}</h2>
-          <h2>{selectedCar.team}</h2>
+          <h1 style={{ color: selectedCar.paragraphColor }}>
+            {selectedCar.name}
+          </h1>
+          <h2 style={{ color: selectedCar.paragraphColor }}>
+            {selectedCar.year}
+          </h2>
+          <h2 style={{ color: selectedCar.paragraphColor }}>
+            {selectedCar.team}
+          </h2>
           <h2 style={{ color: "#dd3940" }}>Winner Le-Mans 24H</h2>
         </div>
         <div
@@ -103,7 +109,7 @@ const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
         <div className={classes.infoCar}>
           <div>
             {Object.entries(selectedCar.specs).map(([key, value]) => (
-              <p key={key}>
+              <p key={key} style={{ color: selectedCar.textColor }}>
                 <strong>{key}:</strong> {value}
               </p>
             ))}
@@ -123,8 +129,8 @@ const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
             )}
           </div>
         </div>
-        <div className={classes.history}>
-          <h1>History</h1>
+        <div className={classes.infoHistory}>
+          <h1 style={{ color: selectedCar.paragraphColor }}>History</h1>
           <div>
             {selectedCar.history.map((elem, index) => (
               <div key={elem.id}>
@@ -138,9 +144,26 @@ const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
             ))}
           </div>
         </div>
-        <div className={classes.bottomPicture}>
-          <img src={selectedCar.picture_footer} alt="" />
+        <div className={classes.infoParticipants}>
+          <h1 style={{ color: selectedCar.paragraphColor }}>Participants</h1>
+          <div>
+            {selectedCar.history.map((elem, index) => (
+              <div key={elem.id}>
+                <img
+                  src={elem.imageHistory}
+                  alt=""
+                  onClick={() => setLightboxIndex(index)}
+                />
+                <p>{elem.textHistory}</p>
+              </div>
+            ))}
+          </div>
         </div>
+        {selectedCar.picture_footer && (
+          <div className={classes.bottomPicture}>
+            <img src={selectedCar.picture_footer} alt="" />
+          </div>
+        )}
       </div>
 
       {lightboxIndex !== null && (

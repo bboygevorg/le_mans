@@ -27,8 +27,9 @@ export interface Car {
   no_visual: "string";
   specs: CarSpecs;
   fontFamily: string;
-  backgroundImage: string;
+  bg: string;
   textColor: string;
+  paragraphColor: string;
   position: "left" | "right" | "center";
   position_picture: "left" | "right" | "center";
   history: CarHistory[];

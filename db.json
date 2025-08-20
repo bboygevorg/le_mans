@@ -21,7 +21,8 @@
         "Weight": "approx. 1,000 kg"
       },
       "fontFamily": "'Cormorant Garamond', serif",
-      "backgroundImage": "https://i.imgur.com/geNi9Ly.png",
+      "bg": "#f3e8d4",
+      "paragraphColor": "",
       "textColor": "#33322",
       "position": "left",
       "position_picture": "right",
@@ -52,7 +53,7 @@
           "textHistory": "Despite their success, Chenard & Walcker did not become a regular contender at Le Mans. However, their 1923 win remains a landmark moment in motorsport history."
         }
       ],
-      "picture_footer": "https://i.imgur.com/DzlCZnf.jpeg"
+      "picture_footer": ""
     }
   ]
 }
