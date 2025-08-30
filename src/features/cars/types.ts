@@ -15,6 +15,13 @@ export interface CarHistory {
   textHistory: string;
 }
 
+export interface RacersInfo {
+  id: number;
+  image: string;
+  name: string;
+  position: string;
+}
+
 export interface Car {
   id: string;
   name: string;
@@ -33,5 +40,7 @@ export interface Car {
   position: "left" | "right" | "center";
   position_picture: "left" | "right" | "center";
   history: CarHistory[];
+  racers: RacersInfo[];
+
   picture_footer: string;
 }

@@ -144,17 +144,14 @@ const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
             ))}
           </div>
         </div>
-        <div className={classes.infoParticipants}>
-          <h1 style={{ color: selectedCar.paragraphColor }}>Participants</h1>
+        <div className={classes.infoRacers}>
+          <h1 style={{ color: selectedCar.paragraphColor }}>Racers</h1>
           <div>
-            {selectedCar.history.map((elem, index) => (
+            {selectedCar.racers.map((elem, index) => (
               <div key={elem.id}>
-                <img
-                  src={elem.imageHistory}
-                  alt=""
-                  onClick={() => setLightboxIndex(index)}
-                />
-                <p>{elem.textHistory}</p>
+                <img src={elem.image} alt="" />
+                <p style={{ color: selectedCar.paragraphColor }}>{elem.name}</p>
+                <p style={{ fontSize: "1.2rem" }}>Number- {elem.position}</p>
               </div>
             ))}
           </div>

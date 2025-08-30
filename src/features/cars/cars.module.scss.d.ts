@@ -6,7 +6,7 @@ export declare const fullscreenBackground: string;
 export declare const infoBlock: string;
 export declare const infoCar: string;
 export declare const infoHistory: string;
-export declare const infoParticipants: string;
+export declare const infoRacers: string;
 export declare const left: string;
 export declare const lightbox: string;
 export declare const navButton: string;
