@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as classes from "@features/cars/cars.module.scss";
 import { Car } from "../types";
+import Painting from "./Painting";
 
 type OnceCarsProps = {
   car: Car[];
@@ -124,7 +125,11 @@ const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
             ) : (
               <>
                 {" "}
-                <div>haya</div>
+                <div>
+                  {selectedCar.picture_360?.map((p) => (
+                    <Painting imageUrl={p.imageUrl} />
+                  ))}
+                </div>
               </>
             )}
           </div>
@@ -156,11 +161,6 @@ const OnceCars: React.FC<OnceCarsProps> = ({ car, id }) => {
             ))}
           </div>
         </div>
-        {selectedCar.picture_footer && (
-          <div className={classes.bottomPicture}>
-            <img src={selectedCar.picture_footer} alt="" />
-          </div>
-        )}
       </div>
 
       {lightboxIndex !== null && (

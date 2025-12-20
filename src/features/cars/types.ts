@@ -22,6 +22,12 @@ export interface RacersInfo {
   position: string;
 }
 
+export interface PictureRotate {
+  id: number;
+  title: any;
+  imageUrl: string;
+}
+
 export interface Car {
   id: string;
   name: string;
@@ -41,6 +47,5 @@ export interface Car {
   position_picture: "left" | "right" | "center";
   history: CarHistory[];
   racers: RacersInfo[];
-
-  picture_footer: string;
+  picture_360: PictureRotate[];
 }

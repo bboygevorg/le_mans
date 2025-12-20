@@ -8,8 +8,14 @@
       "picture_home": "https://i.imgur.com/OnCEKzS.png",
       "picture": "https://i.imgur.com/fFXqLPS.png",
       "sound": "https://res.cloudinary.com/djp2d7bic/video/upload/v1753476096/chenard-walcker_m4o5ez.wav",
-      "visual": "",
+      "visual": "true",
       "no_visual": "https://i.imgur.com/uVJ4zM4.png",
+      "fontFamily": "'Cormorant Garamond', serif",
+      "bg": "#f3e8d4",
+      "paragraphColor": "#7b837f",
+      "textColor": "#33322",
+      "position": "left",
+      "position_picture": "right",
       "specs": {
         "Engine": "4-cylinder, inline",
         "Displacement": "1,983 cc (2.0 liters)",
@@ -20,12 +26,6 @@
         "Brakes": "mechanical, on all four wheels",
         "Weight": "approx. 1,000 kg"
       },
-      "fontFamily": "'Cormorant Garamond', serif",
-      "bg": "#f3e8d4",
-      "paragraphColor": "#7b837f",
-      "textColor": "#33322",
-      "position": "left",
-      "position_picture": "right",
       "history": [
         {
           "id": 1,
@@ -91,7 +91,33 @@
           "position": "11"
         }
       ],
-      "picture_footer": ""
+      "picture_360": [
+        {
+          "id": 1,
+          "title": "Картина 1",
+          "imageUrl": "https://i.imgur.com/sINhdQw.png"
+        },
+        {
+          "id": 2,
+          "title": "Картина 2",
+          "imageUrl": "https://i.imgur.com/jiZA8eJ.png"
+        },
+        {
+          "id": 3,
+          "title": "Картина 3",
+          "imageUrl": "https://i.imgur.com/vaAQ4XJ.png"
+        },
+        {
+          "id": 4,
+          "title": "Картина 4",
+          "imageUrl": "https://i.imgur.com/OHZY42v.png"
+        },
+        {
+          "id": 5,
+          "title": "Картина 5",
+          "imageUrl": "https://i.imgur.com/5bevFVm.png"
+        }
+      ]
     }
   ]
 }

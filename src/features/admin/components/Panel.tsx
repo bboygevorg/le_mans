@@ -9,12 +9,15 @@ const Panel: React.FC = () => {
     team: "",
     picture_home: "",
     picture: "",
-    visual: "",
     sound: "",
+    visual: "",
+    no_visual: "",
     backgroundImage: "",
+    paragraphColor: "",
     fontFamily: "",
     textColor: "",
     position: "left",
+    position_picture: "left",
     specs: {
       Engine: "",
       Displacement: "",
@@ -26,6 +29,7 @@ const Panel: React.FC = () => {
       Weight: "",
     },
     history: [{ id: 1, imageHistory: "", textHistory: "" }],
+    racers: [{ id: 1, image: "", name: "", position: "" }],
   });
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
@@ -84,7 +88,6 @@ const Panel: React.FC = () => {
   return (
     <form className={classes.carFormWrapper} onSubmit={handleSubmit}>
       <h2>Add a car</h2>
-
       <input
         name="id"
         placeholder="id"
@@ -121,7 +124,12 @@ const Panel: React.FC = () => {
         value={car.picture}
         onChange={handleChange}
       />
-
+      <input
+        name="sound"
+        placeholder="sound"
+        value={car.sound}
+        onChange={handleChange}
+      />
       <input
         name="visual"
         placeholder="visual"
@@ -129,9 +137,15 @@ const Panel: React.FC = () => {
         onChange={handleChange}
       />
       <input
-        name="sound"
-        placeholder="sound"
-        value={car.sound}
+        name="no_visual"
+        placeholder="no_visual"
+        value={car.no_visual}
+        onChange={handleChange}
+      />
+      <input
+        name="fontFamily"
+        placeholder="fontFamily"
+        value={car.fontFamily}
         onChange={handleChange}
       />
       <input
@@ -141,9 +155,9 @@ const Panel: React.FC = () => {
         onChange={handleChange}
       />
       <input
-        name="fontFamily"
-        placeholder="fontFamily"
-        value={car.fontFamily}
+        name="paragraphColor"
+        placeholder="paragraph color"
+        value={car.paragraphColor}
         onChange={handleChange}
       />
       <input
@@ -158,7 +172,12 @@ const Panel: React.FC = () => {
         value={car.position}
         onChange={handleChange}
       />
-
+      <input
+        name="position_picture"
+        placeholder="position picture"
+        value={car.position_picture}
+        onChange={handleChange}
+      />
       <h3>Characteristics</h3>
       {Object.entries(car.specs).map(([key, value]) => (
         <input
@@ -193,7 +212,14 @@ const Panel: React.FC = () => {
           add new block
         </button>
       </div>
-
+      <div className={classes.section}>
+        <h3>Racers</h3>
+        {car.racers.map((item, index) => (
+          <div key={item.id} className={classes.historyBlock}>
+            <input type="text" />
+          </div>
+        ))}
+      </div>
       <button type="submit" className={classes.submit}>
         Send
       </button>
